@@ -44,7 +44,8 @@ wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/f5-dns-flood.p
 wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_ab.sh
 wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/kill_all_attacks.sh
 
-chmod u+x update_attacks.sh gen_data.sh gen_udp_floods.sh gen_legit_dns_traffic.sh attack_dns_nxdomain.py attack_dns_watertorture_wget.sh attack_phantomdomain.py attack_teardrop.py f5-dns-flood.py gen_ab.sh kill_all_attacks.sh
+sudo chmod u+x *.sh
+sudo chmod u+x *.py
 
 #---- add auto update to crontab ----
 Cron_output=$(crontab -l | grep "update_attacks.sh")
