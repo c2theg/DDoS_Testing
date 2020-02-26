@@ -1,6 +1,6 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-#
+# Update: 0.0.3
 #------------------------------------------------
 import re
 import mechanize
@@ -22,16 +22,15 @@ attackNumber = 1
 with open('xss_vectors.txt') as f:
     for line in f:
     	browser.open(url)
-	browser.select_form(nr=0)
     	browser["fname"] = line
     	res = browser.submit()
-	content = res.read()
-	#  check the attack vector is printed in the response.
+		content = res.read()
+		#  check the attack vector is printed in the response.
     	if content.find(line) > 0:
-    		print "Possible XXS"
-    	
-	output = open('response/'+str(attackNumber)+'.txt', 'w')
-	output.write(content)
-	output.close()
-	print attackNumber
-	attackNumber += 1
+    		print ("Possible XXS")
+
+		#output = open('response/'+str(attackNumber)+'.txt', 'w')
+		#output.write(content)
+		#output.close()
+		print ("Attack #", attackNumber, ", Response: ", content)
+		attackNumber += 1
