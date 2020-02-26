@@ -82,5 +82,14 @@ sudo ./kill_all_attacks.sh
 sudo ./update_attacks.sh
 ```
 
+<h3> Testing </h3>
+
+The following are commands that can be used to help visualize the attack details
 
 
+```
+htop
+
+speedometer -l -r eth0 -t eth0 -m $(( 1024 * 1024 * 3 / 2 ))
+
+```
