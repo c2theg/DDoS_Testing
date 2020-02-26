@@ -19,7 +19,7 @@ echo "
                             |_|                                             |___|
 
 \r\n \r\n
-Version:  0.0.21                             \r\n
+Version:  0.0.22                             \r\n
 Last Updated:  2/26/2020
 \r\n \r\n
 Updating system first..."
@@ -31,7 +31,7 @@ echo "Downloading required dependencies...\r\n\r\n"
 #--------------------------------------------------------------------------------------------
 
 #--- Install NEW DNSPerf 2020  https://www.dns-oarc.net/tools/dnsperf  ---
-sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel
+sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel htop speedometer
 sudo -E apt-get install -y libprotobuf-c-dev libfstrm-dev liblmdb-dev libssl-dev
 
 curl -o "dnsperf.tar.gz" https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.2.tar.gz
