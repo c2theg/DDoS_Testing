@@ -21,29 +21,30 @@ echo "
 |_____|_|_|_| |_|___|_| |___|  _|_|_|___|_|    |_|_|_|_____|  |_____|_| |__,|_  |
                             |_|                                             |___|
 \r\n \r\n
-Version:  0.0.10                             \r\n
-Last Updated:  6/19/2019
+Version:  0.0.11                             \r\n
+Last Updated:  2/25/2020
 \r\n \r\n
 This is meant for Ubuntu 16.04+  \r\n \r\n"
 #---------------------------------------------------
 if [ -f update_attacks.sh ]; then
-    rm update_attacks.sh gen_data.sh gen_udp_floods.sh gen_legit_dns_traffic.sh attack_dns_nxdomain.py attack_dns_watertorture_wget.sh attack_phantomdomain.py kill_all_attacks.sh
+    rm update_attacks.sh gen_data.sh gen_udp_floods.sh gen_legit_dns_traffic.sh attack_dns_nxdomain.py attack_dns_watertorture_wget.sh attack_phantomdomain.py attack_teardrop.py f5-dns-flood.py gen_ab.sh kill_all_attacks.sh
 fi
 
 echo "\r\n \r\n Downloading scripts... \r\n"
 #--- files ----
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/update_attacks.sh
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/gen_data.sh
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/gen_udp_floods.sh
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/gen_legit_dns_traffic.sh
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/attack_dns_nxdomain.py
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/attack_dns_watertorture_wget.sh
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/attack_phantomdomain.py
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/kill_all_attacks.sh
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/set_geohash.py
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_udp_floods.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_legit_dns_traffic.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_dns_nxdomain.py
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_dns_watertorture_wget.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_phantomdomain.py
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_teardrop.py
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/f5-dns-flood.py
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_ab.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/kill_all_attacks.sh
 
-#---- Permissions ---
-chmod u+x update_attacks.sh gen_data.sh gen_udp_floods.sh gen_legit_dns_traffic.sh attack_dns_nxdomain.py attack_dns_watertorture_wget.sh attack_phantomdomain.py kill_all_attacks.sh set_geohash.py
+chmod u+x update_attacks.sh gen_data.sh gen_udp_floods.sh gen_legit_dns_traffic.sh attack_dns_nxdomain.py attack_dns_watertorture_wget.sh attack_phantomdomain.py attack_teardrop.py f5-dns-flood.py gen_ab.sh kill_all_attacks.sh
 
 #---- add auto update to crontab ----
 Cron_output=$(crontab -l | grep "update_attacks.sh")
