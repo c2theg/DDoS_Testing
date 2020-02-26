@@ -1,7 +1,10 @@
-#!/usr/bin/python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#------------------------------------------------
+import sys, getopt
 from scapy.all import *
 import unicodedata
-import sys, getopt
 import time, datetime
 import argparse
 import socket
