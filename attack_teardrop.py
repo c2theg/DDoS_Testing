@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 from scapy.all import *
 
 total = len(sys.argv)
 if total != 3:
-  print "Performs teardrop attack from Kali Linux"
+  print "Performs teardrop attack"
   print " "
   print "Usage: ./tear TARGET-IP ATTACK-CODE"
   print "   Attack Codes:"
