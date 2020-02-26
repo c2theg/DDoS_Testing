@@ -19,7 +19,7 @@ echo "
                             |_|                                             |___|
 
 \r\n \r\n
-Version:  0.0.20                             \r\n
+Version:  0.0.21                             \r\n
 Last Updated:  2/26/2020
 \r\n \r\n
 Updating system first..."
@@ -36,7 +36,7 @@ sudo -E apt-get install -y libprotobuf-c-dev libfstrm-dev liblmdb-dev libssl-dev
 
 curl -o "dnsperf.tar.gz" https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.2.tar.gz
 tar zxvf dnsperf.tar.gz
-cd dnsperf
+cd dnsperf-2.3.2/
 ./configure
 make
 make install
