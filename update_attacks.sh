@@ -4,7 +4,7 @@ echo "
     Updated Attack scripts
 
 
-Version:  0.0.13     
+Version:  0.0.14     
 Last Updated:  2/26/2020
 
 This is meant for Ubuntu 16.04+
@@ -16,10 +16,10 @@ Downloading files...
 
 "
 #--- Files ---
-curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/README.md
-curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh
+curl  -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/README.md
+curl  -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh
 curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_ab.sh
-curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/kill_all_attacks.sh
+curl  -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/kill_all_attacks.sh
 curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/xss_vectors.txt
 
 #--- Layer 3/4 ----
@@ -34,7 +34,7 @@ curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/f5-dns
 
 
 #--- Layer 7 ---
-curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/port_scanner.py
+curl  -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/port_scanner.py
 
 curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data_layer7.sh
 curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_l7_attacks.sh
@@ -57,7 +57,7 @@ Cron_output=$(crontab -l | grep "update_attacks.sh")
 if [ -z "$Cron_output" ]
 then
     echo "Script not in crontab. Adding."
-    line="10 3 * * * /home/ubuntu/update_attacks.sh >> /var/log/update_attacks.log 2>&1"
+    line="10 3 * * * /home/ubuntu/attacks/update_attacks.sh >> /var/log/update_attacks.log 2>&1"
     (crontab -u root -l; echo "$line" ) | crontab -u root -
 
 #   line="@reboot /root/update_attacks.sh >> /var/log/update_attacks.log 2>&1"
