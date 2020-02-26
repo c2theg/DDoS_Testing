@@ -13,8 +13,8 @@ echo "
 |_____|_|_|_| |_|___|_| |___|  _|_|_|___|_|    |_|_|_|_____|  |_____|_| |__,|_  |
                             |_|                                             |___|
 \r\n \r\n
-Version:  0.6.13                             \r\n
-Last Updated:  2/22/2020
+Version:  0.6.2                             \r\n
+Last Updated:  2/26/2020
 \r\n \r\n
 This is meant for Ubuntu 16.04+  \r\n \r\n"
 #---------------------------------------------------------------------------------------------------------
@@ -34,6 +34,7 @@ wget -O "gen_data.sh" "https://raw.githubusercontent.com/c2theg/DDoS_Testing/mas
 
 sudo chmod u+x *.sh
 
+./install_gen_data.sh
 ./update_attacks.sh
 
 echo "DONE! \r\n "
