@@ -1,4 +1,7 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#------------------------------------------------
 # Source: https://sdet.us/form-fuzzing-python-mechanize/
 import re
 import mechanize

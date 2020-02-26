@@ -1,4 +1,7 @@
-#!/usr/bin/python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#------------------------------------------------
 #From: https://github.com/hackingyseguridad/watertorture/blob/master/subdominio.py 
 #-- Forked by Christopher Gray
 # Date: 5/23/18 - Version 0.0.7

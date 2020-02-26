@@ -1,4 +1,7 @@
-#!/usr/bin/python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#------------------------------------------------
 #Author : Antonio Taboada
 #Date: 12/10/2016
 #Filename: subdominio.py

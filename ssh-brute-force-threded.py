@@ -1,6 +1,9 @@
-#!/usr/bin/python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#------------------------------------------------
 import paramiko, sys, os, socket, threading, time 
-import itertools,string,crypt
+import itertools, string, crypt
 
 PASS_SIZE = 5
 
@@ -11,7 +14,6 @@ def bruteforce_list(charset, maxlength):
 
 
 def attempt(Password):
-
     IP = "127.0.0.1"
     USER = "admin"
     PORT=22
