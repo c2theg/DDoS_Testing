@@ -21,16 +21,16 @@ url = input("Enter the full url")
 attackNumber = 1
 with open('xss_vectors.txt') as f:
     for line in f:
-    	browser.open(url)
-    	browser["fname"] = line
-    	res = browser.submit()
-		content = res.read()
-		#  check the attack vector is printed in the response.
-    	if content.find(line) > 0:
-    		print ("Possible XXS")
+        browser.open(url)
+        browser["fname"] = line
+        res = browser.submit()
+        content = res.read()
+        #  check the attack vector is printed in the response.
+        if content.find(line) > 0:
+            print ("Possible XXS")
 
-		#output = open('response/'+str(attackNumber)+'.txt', 'w')
-		#output.write(content)
-		#output.close()
-		print ("Attack #", attackNumber, ", Response: ", content)
-		attackNumber += 1
+        #output = open('response/'+str(attackNumber)+'.txt', 'w')
+        #output.write(content)
+        #output.close()
+        print ("Attack #", attackNumber, ", Response: ", content)
+        attackNumber += 1
