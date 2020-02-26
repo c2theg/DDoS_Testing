@@ -1,6 +1,6 @@
 #!/bin/sh
 # Christopher Gray
-# Version 0.0.8
+# Version 0.0.9
 #  2/26/2020
 
 if [ -z "$1" ]; then
@@ -71,7 +71,7 @@ echo "Starting Apache Bench... "
 
 # ab -n 100 -c 10 http://$server_ip
 # ab -n 1 -v 2 http://$server_ip
-ab -l -r -n 40 -c 80 -k -H "Accept-Encoding: gzip, deflate"  http://$server_ip
+ab -l -r -n 80 -c 100 -k -H "Accept-Encoding: gzip, deflate"  http://$server_ip/index.html
 
 """
 Usage: ab [options] [http[s]://]hostname[:port]/path
