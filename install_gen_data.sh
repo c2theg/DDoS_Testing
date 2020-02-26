@@ -19,7 +19,7 @@ echo "
                             |_|                                             |___|
 
 \r\n \r\n
-Version:  0.0.18                             \r\n
+Version:  0.0.19                             \r\n
 Last Updated:  2/25/2020
 \r\n \r\n
 Updating system first..."
@@ -33,8 +33,8 @@ if [ -f update_attacks.sh ]; then
     rm update_attacks.sh gen_data.sh
 fi
 
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/update_attacks.sh
-wget https://raw.githubusercontent.com/c2theg/Vendor_code/master/F5/syslog-ng/gen_data.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh
+wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data.sh
 chmod u+x update_attacks.sh gen_data.sh
 
 #----- Install DNSPerf ----------
