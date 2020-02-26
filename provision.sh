@@ -13,7 +13,7 @@ echo "
 |_____|_|_|_| |_|___|_| |___|  _|_|_|___|_|    |_|_|_|_____|  |_____|_| |__,|_  |
                             |_|                                             |___|
 \r\n \r\n
-Version:  0.6.12                             \r\n
+Version:  0.6.13                             \r\n
 Last Updated:  2/22/2020
 \r\n \r\n
 This is meant for Ubuntu 16.04+  \r\n \r\n"
@@ -35,4 +35,7 @@ echo "\r\n \r\n Downloading Attack Script Updater "
 wget -O "update_attacks.sh" "https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh"
 
 sudo chmod u+x *.sh
+
+./update_attacks.sh
+
 echo "DONE! \r\n "
