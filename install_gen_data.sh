@@ -30,7 +30,7 @@ wait
 echo "Downloading required dependencies...\r\n\r\n"
 #--------------------------------------------------------------------------------------------
 
-#--- Install NEW DNSPerf 2020  https://www.dns-oarc.net/tools/dnsperf  ---
+#--- Install DNSPerf 2020 -- https://www.dns-oarc.net/tools/dnsperf  ---
 sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel
 sudo -E apt-get install -y libprotobuf-c-dev libfstrm-dev liblmdb-dev libssl-dev
 
@@ -42,45 +42,19 @@ make
 make install
 dnsperf -h
 
-echo "Download Sample DNS Data.. 
+cd ..
+echo "Download Sample DNS Data (Last updated: Jan 17  2019)...  
 
 "
+
 wget -O "queryfile-example-10million.gz" "https://www.dns-oarc.net/files/dnsperf/data/queryfile-example-10million-201202.gz"
 gunzip queryfile-example-10million.gz
 
+# TODO: Add Flamethrower - https://github.com/DNS-OARC/flamethrower
 
-#----- Install DNSPerf ----------
-# https://www.nominum.com/measurement-tools/
-#sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel
-
-#if [ -f dnsperf-src-2.1.0.0-1.tar.gz ]; then
-#    rm dnsperf-src-2.1.0.0-1.tar.gz
-#fi
-#if [ -d dnsperf-src-2.1.0.0-1 ]; then
-#    rm -r dnsperf-src-2.1.0.0-1/
-#fi
-
-#curl ftp://ftp.nominum.com/pub/nominum/dnsperf/2.1.0.0/dnsperf-src-2.1.0.0-1.tar.gz -O
-#tar xfvz dnsperf-src-2.1.0.0-1.tar.gz
-#cd dnsperf-src-2.1.0.0-1
-#./configure
-#make clean
-#make
-#sudo make install
-#wait
-#dnsperf -h
-#cd ..
-#rm dnsperf-src-2.1.0.0-1.tar.gz
-#--- download latest Queryfile from Nominum ---
-#if [ -f queryfile-example-current.gz ]; then
-#    rm queryfile-example-current.gz
-#fi
-#wget -O "queryfile-example-current.gz" "ftp://ftp.nominum.com/pub/nominum/dnsperf/data/queryfile-example-current.gz"
-#gunzip queryfile-example-current.gz
 
 #------- Apache Bench ------------
 sudo -E apt-get install -y apache2-utils
-
 #-------------------- HPING ---------------------
 sudo -E apt-get install -y nload traceroute hping3 tcl8.6
 wait
