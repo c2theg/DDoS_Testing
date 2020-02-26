@@ -1,8 +1,8 @@
 
 #!/bin/sh
 # Christopher Gray
-# Version 0.2.2
-#  11-7-18
+# Version 0.2.3
+#  2-26-2020
 
 if [ -z "$1" ]; then
       echo "No dest defined to attack! please define one before continuing \r\n"
@@ -11,7 +11,6 @@ else
       server_ip=$1
       echo "Server is set to $server_ip \r\n"
 fi
-
 
 #---- apache bench attack ----
 echo "Starting a Apache bench strest test... \r\n"
