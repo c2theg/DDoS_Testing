@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-
-# https://www.tutorialspoint.com/python_penetration_testing/python_penetration_testing_quick_guide.htm
+# from https://www.tutorialspoint.com/python_penetration_testing/python_penetration_testing_quick_guide.htm
+# made some fixes
+#
+#------------------------------------------------
 import socket
 import time
 import threading
@@ -32,14 +33,14 @@ def threader():
       q.task_done()
       
 q = Queue()
-   startTime = time.time()
+startTime = time.time()
    
 for x in range(100):
    t = threading.Thread(target = threader)
    t.daemon = True
    t.start()
-   
-for worker in range(1, 500):
+
+for worker in range(1, 6000):
    q.put(worker)
    
 q.join()
