@@ -94,3 +94,8 @@ speedometer -l -r eth0 -t eth0 -m $(( 1024 * 1024 * 3 / 2 ))
 
 ```
 
+
+<h3> Notes / Sources </h3>
+
+https://www.tutorialspoint.com/python_penetration_testing/python_penetration_testing_tutorial.pdf
+https://tools.kali.org/tools-listing
