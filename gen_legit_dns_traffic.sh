@@ -21,14 +21,16 @@ else
 fi
 
 
-if [ -f queryfile-example-current ]; then
-      echo "Loading Nominum sample data file! \r\n \r\n"
+if [ -f queryfile-example-10million ]; then
+      echo "Loading DNSPerf sample data file! \r\n \r\n"
 else
       echo "Missing Nominum sample data... downloading it!  \r\n \r\n "
-      wget -O "queryfile-example-current.gz" "ftp://ftp.nominum.com/pub/nominum/dnsperf/data/queryfile-example-current.gz"
+      wget -O "queryfile-example-10million.gz" "https://www.dns-oarc.net/files/dnsperf/data/queryfile-example-10million-201202.gz"
       echo "Decompressing file... \r\n \r\n"
-      gunzip queryfile-example-current.gz
+      gunzip queryfile-example-10million.gz
       wait
+      sleep 2
+      rm queryfile-example-10million.gz
 fi
 
 #-----------------------------------------------------------------------------------------------------------------
@@ -51,10 +53,10 @@ fi
 # -v     Verbose: report the RCODE of each response on stdout.
 # -h     Print the usage of dnsperf.
 
-if [ -f queryfile-example-current ]; then
+if [ -f queryfile-example-10million ]; then
       #sudo dnsperf -s $server_ip -d queryfile-example-current -c 200 -T 10 -l 300 -q 10000 -Q 25
       echo "Running DNS Perf to generate alot of ligitimate DNS traffic from Nominum sample data, to the DNS Server. \r\n \r\n"
-      sudo dnsperf -s $server_ip -d queryfile-example-current -c 200 -T 10 -l 300 -q 10000 -Q $queries_ps 2> /dev/null &
+      sudo dnsperf -s $server_ip -d queryfile-example-10million -c 200 -T 10 -l 300 -q 10000 -Q $queries_ps 2> /dev/null &
       wait
 fi
 
