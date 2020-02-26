@@ -19,7 +19,7 @@ echo "
                             |_|                                             |___|
 
 \r\n \r\n
-Version:  0.0.22                             \r\n
+Version:  0.0.23                             \r\n
 Last Updated:  2/26/2020
 \r\n \r\n
 Updating system first..."
@@ -31,7 +31,7 @@ echo "Downloading required dependencies...\r\n\r\n"
 #--------------------------------------------------------------------------------------------
 
 #--- Install NEW DNSPerf 2020  https://www.dns-oarc.net/tools/dnsperf  ---
-sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel htop speedometer
+sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel htop speedometer tcpdump libpcap curl
 sudo -E apt-get install -y libprotobuf-c-dev libfstrm-dev liblmdb-dev libssl-dev
 
 curl -o "dnsperf.tar.gz" https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.2.tar.gz
@@ -124,12 +124,16 @@ mz eth0 -c 0 -Q 50,100 -A rand -B 10.5.5.0/25 -t tcp \"flags=syn, dp=1-1023\"
 "
 
 #---- Python tools ---
+sudo apt-get -y install python-mechanize
+
 # Install Python3 
 wget https://raw.githubusercontent.com/c2theg/srvBuilds/master/install_python3.sh && chmod u+x install_python3.sh && ./install_python3.sh
 wait
 sleep 2
 pip3 install dnspython
-pip3 install scapy
+#pip3 install scapy
+pip3 install --pre scapy[complete]
+pip3 install mechanize
 
 #--- Slowloris
 echo "\r\n \r\n Downloading Slowloris... \r\n "

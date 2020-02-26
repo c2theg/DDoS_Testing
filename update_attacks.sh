@@ -1,48 +1,54 @@
 #!/bin/sh
-#    If you update this from Windows, using Notepad ++, do the following:
-#       sudo apt-get -y install dos2unix
-#       dos2unix <FILE>
-#       chmod u+x <FILE>
-#
 clear
 echo "
     Updated Attack scripts
 
 
-Version:  0.0.12     
+Version:  0.0.13     
 Last Updated:  2/26/2020
 
 This is meant for Ubuntu 16.04+
 
 "
 #---------------------------------------------------
-if [ -f update_attacks.sh ]; then
-    rm update_attacks.sh gen_data.sh gen_udp_floods.sh gen_legit_dns_traffic.sh attack_dns_nxdomain.py attack_dns_watertorture_wget.sh attack_phantomdomain.py attack_teardrop.py f5-dns-flood.py gen_ab.sh kill_all_attacks.sh gen_l7_attacks.sh README.md
-fi
-
 echo "
-Downloading scripts... 
+Downloading files...
 
 "
-#--- files ----
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/README.md
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_udp_floods.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_legit_dns_traffic.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_dns_nxdomain.py
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_dns_watertorture_wget.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_phantomdomain.py
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_teardrop.py
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/f5-dns-flood.py
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_ab.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/kill_all_attacks.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_l7_attacks.sh
+#--- Files ---
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/README.md
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_ab.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/kill_all_attacks.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/xss_vectors.txt
+
+#--- Layer 3/4 ----
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_udp_floods.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_legit_dns_traffic.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_dns_nxdomain.py
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_dns_watertorture_wget.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_phantomdomain.py
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_teardrop.py
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/f5-dns-flood.py
 
 
-curl -o "attack_dns_watertorture_wget.sh" https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/attack_dns_watertorture_wget.sh && chmod u+x attack_dns_watertorture_wget.sh && ./attack_dns_watertorture_wget.sh
+#--- Layer 7 ---
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/port_scanner.py
 
-#---------------------------------
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data_layer7.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_l7_attacks.sh
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/mechanize_attack1.py
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/mechanize_attack2.py
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/mechanize_attack3.py
+
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/ssh-brute-force-threded.py
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/sqli_attack-vector.txt
+
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/recursive_dns.txt
+curl -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/sqlmitm.py
+
+#-------------------------------------------------------------------------------------------
 sudo chmod u+x *.sh
 sudo chmod u+x *.py
 
