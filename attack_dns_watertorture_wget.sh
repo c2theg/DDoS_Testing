@@ -11,7 +11,8 @@ if [ -z "$1" ]
       exit
 else
       DomainName=$1
-      echo "Domain Name is set to $DomainName \r\n"
+      echo "Domain Name is set to $DomainName \r\n Sleeping for 3 seconds... \r\n"
+      sleep 3
 fi
 
 for (( c=1; c<=10000; c++ ))
