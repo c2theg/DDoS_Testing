@@ -1,10 +1,9 @@
 #!/bin/sh
 # Christopher Gray
-# Version 0.2.3
-#  11-10-18
+# Version 0.2.4
+#  2/26/2020
 
-if [ -z "$1" ]
-then
+if [ -z "$1" ]; then
       echo "No dest defined to attack! please define one before continuing \r\n"
       exit
 else
@@ -12,8 +11,7 @@ else
       echo "Server is set to $server_ip \r\n"
 fi
 
-if [ -z "$2" ]
-then
+if [ -z "$2" ]; then
       echo "Defaulting queries to send is set to: 1500 \r\n"
       queries_ps=1500
 else

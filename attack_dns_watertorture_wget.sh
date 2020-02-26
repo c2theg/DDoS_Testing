@@ -1,12 +1,11 @@
 #!/bin/bash
 # Christopher Gray
 # Update: 2/22/20
-# Version: 0.8.5
+# Version: 0.8.6
 #---------------------------------------
 # DNS WATER TORTURE with WGET
 
-if [ -z "$1" ]
-   then
+if [ -z "$1" ]; then
       echo "Domain Name Required. please define one before continuing \r\n"
       exit
 else

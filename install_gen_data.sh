@@ -19,8 +19,8 @@ echo "
                             |_|                                             |___|
 
 \r\n \r\n
-Version:  0.0.19                             \r\n
-Last Updated:  2/25/2020
+Version:  0.0.20                             \r\n
+Last Updated:  2/26/2020
 \r\n \r\n
 Updating system first..."
 sudo -E apt-get update
@@ -29,42 +29,54 @@ sudo -E apt-get upgrade -y
 wait
 echo "Downloading required dependencies...\r\n\r\n"
 #--------------------------------------------------------------------------------------------
-if [ -f update_attacks.sh ]; then
-    rm update_attacks.sh gen_data.sh
-fi
 
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/update_attacks.sh
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data.sh
-chmod u+x update_attacks.sh gen_data.sh
+#--- Install NEW DNSPerf 2020  https://www.dns-oarc.net/tools/dnsperf  ---
+sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel
+sudo -E apt-get install -y libprotobuf-c-dev libfstrm-dev liblmdb-dev libssl-dev
+
+curl -o "dnsperf.tar.gz" https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.2.tar.gz
+tar zxvf dnsperf.tar.gz
+cd dnsperf
+./configure
+make
+make install
+dnsperf -h
+
+echo "Download Sample DNS Data.. 
+
+"
+wget -O "queryfile-example-10million.gz" "https://www.dns-oarc.net/files/dnsperf/data/queryfile-example-10million-201202.gz"
+gunzip queryfile-example-10million.gz
+
 
 #----- Install DNSPerf ----------
 # https://www.nominum.com/measurement-tools/
-sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel
+#sudo -E apt-get install -y bind9utils libbind-dev libkrb5-dev libssl-dev libcap-dev libxml2-dev libjson-c-dev libgeoip-dev make parallel
 
-if [ -f dnsperf-src-2.1.0.0-1.tar.gz ]; then
-    rm dnsperf-src-2.1.0.0-1.tar.gz
-fi
-if [ -d dnsperf-src-2.1.0.0-1 ]; then
-    rm -r dnsperf-src-2.1.0.0-1/
-fi
+#if [ -f dnsperf-src-2.1.0.0-1.tar.gz ]; then
+#    rm dnsperf-src-2.1.0.0-1.tar.gz
+#fi
+#if [ -d dnsperf-src-2.1.0.0-1 ]; then
+#    rm -r dnsperf-src-2.1.0.0-1/
+#fi
 
-curl ftp://ftp.nominum.com/pub/nominum/dnsperf/2.1.0.0/dnsperf-src-2.1.0.0-1.tar.gz -O
-tar xfvz dnsperf-src-2.1.0.0-1.tar.gz
-cd dnsperf-src-2.1.0.0-1
-./configure
-make clean
-make
-sudo make install
-wait
-dnsperf -h
-cd ..
-rm dnsperf-src-2.1.0.0-1.tar.gz
+#curl ftp://ftp.nominum.com/pub/nominum/dnsperf/2.1.0.0/dnsperf-src-2.1.0.0-1.tar.gz -O
+#tar xfvz dnsperf-src-2.1.0.0-1.tar.gz
+#cd dnsperf-src-2.1.0.0-1
+#./configure
+#make clean
+#make
+#sudo make install
+#wait
+#dnsperf -h
+#cd ..
+#rm dnsperf-src-2.1.0.0-1.tar.gz
 #--- download latest Queryfile from Nominum ---
-if [ -f queryfile-example-current.gz ]; then
-    rm queryfile-example-current.gz
-fi
-wget -O "queryfile-example-current.gz" "ftp://ftp.nominum.com/pub/nominum/dnsperf/data/queryfile-example-current.gz"
-gunzip queryfile-example-current.gz
+#if [ -f queryfile-example-current.gz ]; then
+#    rm queryfile-example-current.gz
+#fi
+#wget -O "queryfile-example-current.gz" "ftp://ftp.nominum.com/pub/nominum/dnsperf/data/queryfile-example-current.gz"
+#gunzip queryfile-example-current.gz
 
 #------- Apache Bench ------------
 sudo -E apt-get install -y apache2-utils

