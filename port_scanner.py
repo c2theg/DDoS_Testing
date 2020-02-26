@@ -1,4 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+
 # https://www.tutorialspoint.com/python_penetration_testing/python_penetration_testing_quick_guide.htm
 import socket
 import time
