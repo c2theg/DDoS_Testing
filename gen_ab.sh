@@ -9,7 +9,7 @@ if [ -z "$1" ]; then
       exit
 else
       server_ip=$1
-      echo "Server is set to $server_ip \r\n"
+      echo "Server is set to http://$server_ip/index.html \r\n"
 fi
 
 #---- apache bench attack ----
