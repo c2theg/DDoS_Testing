@@ -1,14 +1,14 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Update: 0.0.3
+# Update: 0.0.5
 #------------------------------------------------
 import re
 import mechanize
-#browser = mechanize.Browser()
-browser = mechanize.Browser(factory=mechanize.RobustFactory())
+browser = mechanize.Browser()
+#browser = mechanize.Browser(factory=mechanize.RobustFactory())
 browser.set_handle_robots(False)
 browser.set_handle_equiv(True)
-browser.set_handle_gzip(True)
+browser.set_handle_gzip(False)
 browser.set_handle_redirect(True)
 browser.set_handle_referer(True)
 browser.select_form(nr=0)
