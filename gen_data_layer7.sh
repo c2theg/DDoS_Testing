@@ -1,4 +1,18 @@
-```
+#!/bin/sh
+# Christopher Gray
+# Version 0.1
+#  2/26/2020
+
+if [ -z "$1" ]; then
+      echo "No dest defined to attack! please define one before continuing \r\n"
+      exit
+else
+      server_ip=$1
+      echo "Server is set to $server_ip \r\n"
+fi
+
+
+echo -e "
 
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -36,6 +50,7 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNMMMMMMMM
 
 
+                    LAYER 7 (Application)
 
             ________  ________          _________              
             \______ \ \______ \   ____ /   _____/              
@@ -52,56 +67,14 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 
             ONLY FOR LAB USE. DO NOT USE ON THE INTERWEBS!
-            
-```
-
-<h1> Requires: Ubuntu 16.04+ </h3>
 
 
-<h3> Install scripts </h3>
+"
 
-```
-wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/provision.sh && chmod u+x provision.sh && ./provision.sh
-```
+echo "Running Legitmate Traffic... \r\n "
+#sudo ./gen_legit_dns_traffic.sh $server_ip $queries_ps &>/dev/null &
 
-<h3> Start Attacks (Layer 3/4) </h3>
+echo "Running UDP Floods... \r\n "
+#sudo ./gen_udp_floods.sh $server_ip  &>/dev/null &
+#-----------------------------------------------------------------------------------------------------------------
 
-```
-sudo ./gen_data.sh 10.1.6.66
-```
-
-<h3> Start Attacks (Layer 7) </h3>
-
-```
-sudo ./gen_data_layer7.sh 10.1.6.66
-```
-
-<h3> Stop all Attacks </h3>
-
-```
-sudo ./kill_all_attacks.sh
-```
-
-<h3> Update Attacks </h3>
-
-```
-sudo ./update_attacks.sh
-```
-
-<h3> Testing </h3>
-
-The following are commands that can be used to help visualize the attack details
-
-
-```
-htop
-
-speedometer -l -r eth0 -t eth0 -m $(( 1024 * 1024 * 3 / 2 ))
-
-```
-
-
-<h3> Notes / Sources </h3>
-
-https://www.tutorialspoint.com/python_penetration_testing/python_penetration_testing_tutorial.pdf
-https://tools.kali.org/tools-listing
