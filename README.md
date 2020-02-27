@@ -75,13 +75,6 @@ sudo ./gen_data.sh 10.1.6.66
 ```
 sudo ./gen_data_layer7.sh 10.1.6.66
 ```
-<b> F5 Networks makes a WAF tester that works great! </b> https://github.com/f5devcentral/f5-waf-tester
-It is installed during the install process for this script. 
-
-```
-usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]
-```
-
 
 <h3> Stop all Attacks </h3>
 
