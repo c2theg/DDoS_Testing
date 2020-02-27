@@ -19,8 +19,8 @@ echo "
                             |_|                                             |___|
 
 \r\n \r\n
-Version:  0.0.23                             \r\n
-Last Updated:  2/26/2020
+Version:  0.0.24                             \r\n
+Last Updated:  2/27/2020
 \r\n \r\n
 Updating system first..."
 sudo -E apt-get update
@@ -130,10 +130,11 @@ sudo apt-get -y install python-mechanize
 wget https://raw.githubusercontent.com/c2theg/srvBuilds/master/install_python3.sh && chmod u+x install_python3.sh && ./install_python3.sh
 wait
 sleep 2
+
 pip3 install dnspython
-#pip3 install scapy
 pip3 install --pre scapy[complete]
 pip3 install mechanize
+pip3 install paramiko
 
 #--- Slowloris
 echo "\r\n \r\n Downloading Slowloris... \r\n "
@@ -162,7 +163,19 @@ perl slowloris.pl -dns (Victim URL or IP) -options \r\n
 #sudo make install
 #--- ubuntu repo ----
 sudo -E apt-get install -y slowhttptest
+#---------------------------------------------------------
+# F5 WAF TESTER
+# https://github.com/f5devcentral/f5-waf-tester
 
+pip3 install git+https://github.com/f5devcentral/f5-waf-tester.git
+f5-waf-tester --init
+
+
+
+
+
+
+#---------------------------------------------------------
 sh ./update_attacks.sh
 
 echo "All items done installing!!! \r\n \r\n "
