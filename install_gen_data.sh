@@ -164,16 +164,20 @@ perl slowloris.pl -dns (Victim URL or IP) -options \r\n
 #--- ubuntu repo ----
 sudo -E apt-get install -y slowhttptest
 #---------------------------------------------------------
-# F5 WAF TESTER
-# https://github.com/f5devcentral/f5-waf-tester
+echo "Installing ->  F5 WAF TESTER 
+ 
+ https://github.com/f5devcentral/f5-waf-tester
 
+"
 pip3 install git+https://github.com/f5devcentral/f5-waf-tester.git
-f5-waf-tester --init
 
+echo " 
 
+DONE. to start it use: 
+    f5-waf-tester --init
 
-
-
+    usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]
+"
 
 #---------------------------------------------------------
 sh ./update_attacks.sh
