@@ -7,6 +7,7 @@ echo "Killing all attack threads..."
 
 echo "HPing3... "
 killall -9 hping3
+killall -9 hping
 wait
 sleep 1
 
