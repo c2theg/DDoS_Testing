@@ -23,6 +23,12 @@ rm kill_all_attacks.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.
 rm xss_vectors.txt && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/xss_vectors.txt
 rm Tester_gen_data.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/Tester_gen_data.sh
 
+
+echo "
+
+Download Attack scripts... 
+
+"
 #--- Layer 3/4 ----
 rm gen_data.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data.sh
 rm gen_udp_floods.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_udp_floods.sh
@@ -55,20 +61,19 @@ sudo chmod u+x *.py
 
 #---- add auto update to crontab ----
 Cron_output=$(crontab -l | grep "update_attacks.sh")
-if [ -z "$Cron_output" ]
-then
+if [ -z "$Cron_output" ]; then
     echo "Script not in crontab. Adding."
-    line="10 3 * * * /home/ubuntu/attacks/update_attacks.sh >> /var/log/update_attacks.log 2>&1"
-    (crontab -u root -l; echo "$line" ) | crontab -u root -
+#    line="10 3 * * * /home/ubuntu/attacks/update_attacks.sh >> /var/log/update_attacks.log 2>&1"
+#    (crontab -u root -l; echo "$line" ) | crontab -u root -
 
-#   line="@reboot /root/update_attacks.sh >> /var/log/update_attacks.log 2>&1"
-#   (crontab -u root -l; echo "$line" ) | crontab -u root -
+   line="@reboot /root/update_attacks.sh >> /var/log/update_attacks.log 2>&1"
+   (crontab -u root -l; echo "$line" ) | crontab -u root -
 else
-      echo "Script was found in crontab. skipping addition"
+    echo "Script was found in crontab. skipping addition"
 fi
 
 echo "
 
-DONE!
+Updating complete!
 
 "
