@@ -19,8 +19,8 @@ echo "
                             |_|                                             |___|
 
 \r\n \r\n
-Version:  0.0.24                             \r\n
-Last Updated:  2/27/2020
+Version:  0.0.25                             \r\n
+Last Updated:  3/2/2020
 \r\n \r\n
 Updating system first..."
 sudo -E apt-get update
@@ -45,6 +45,7 @@ dnsperf -h
 echo "Download Sample DNS Data.. 
 
 "
+cd ..
 wget -O "queryfile-example-10million.gz" "https://www.dns-oarc.net/files/dnsperf/data/queryfile-example-10million-201202.gz"
 gunzip queryfile-example-10million.gz
 
@@ -164,7 +165,7 @@ perl slowloris.pl -dns (Victim URL or IP) -options \r\n
 #--- ubuntu repo ----
 sudo -E apt-get install -y slowhttptest
 #---------------------------------------------------------
-sh ./update_attacks.sh
+#sh ./update_attacks.sh
 
 echo "All items done installing!!! \r\n \r\n "
 echo "To generate VALID DNS traffic run the following script:  ./gen_data.sh "
