@@ -4,8 +4,8 @@ echo "
     Updated Attack scripts
 
 
-Version:  0.0.16
-Last Updated:  2/26/2020
+Version:  0.0.17
+Last Updated:  3/2/2020
 
 This is meant for Ubuntu 16.04+
 
@@ -21,6 +21,7 @@ rm update_attacks.sh && curl -H 'Cache-Control: no-cache' -o "update_attacks.sh"
 rm gen_ab.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_ab.sh
 rm kill_all_attacks.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/kill_all_attacks.sh
 rm xss_vectors.txt && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/xss_vectors.txt
+rm Tester_gen_data.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/Tester_gen_data.sh
 
 #--- Layer 3/4 ----
 rm gen_data.sh && curl -H 'Cache-Control: no-cache' -O -C - https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/gen_data.sh

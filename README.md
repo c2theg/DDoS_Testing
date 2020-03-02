@@ -66,8 +66,12 @@ wget https://raw.githubusercontent.com/c2theg/DDoS_Testing/master/provision.sh &
 
 <h3> Start Attacks (Layer 3/4) </h3>
 
+Usage: <script> <queries to send (default: 1500)>
+
 ```
 sudo ./gen_data.sh 10.1.6.66
+
+use this for AWS:   <b> sudo ./Tester_gen_data.sh 10.1.6.66 512 </b>
 ```
 
 <h3> Start Attacks (Layer 7) </h3>
