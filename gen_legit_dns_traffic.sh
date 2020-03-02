@@ -71,7 +71,7 @@ echo "Starting Apache Bench... "
 
 # ab -n 100 -c 10 http://$server_ip
 # ab -n 1 -v 2 http://$server_ip
-ab -l -r -n 80 -c 100 -k -H "Accept-Encoding: gzip, deflate"  http://$server_ip/index.html
+ab -l -r -n 100 -c 60 -k -H "Accept-Encoding: gzip, deflate"  http://$server_ip/index.html
 
 """
 Usage: ab [options] [http[s]://]hostname[:port]/path
