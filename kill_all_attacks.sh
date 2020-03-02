@@ -1,16 +1,20 @@
 #!/bin/sh
 # Christopher Gray
-#  Version 0.0.6
+#  Version 0.0.7
 #  3/2/2020
 
 echo "Killing all attack threads..."
 
 echo "HPing3... "
+wait
+sleep 2
 killall -9 hping3
+wait
+sleep 2
 killall -9 hping
+
 wait
 sleep 1
-
 echo "NPing... "
 killall -9 nping
 wait
